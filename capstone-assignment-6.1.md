@@ -1,4 +1,5 @@
 # Early Diabetes Detection System (EDDS)
+### https://github.com/RamyaChowdavaram/early-diabetes-detection-system/blob/main/diabetes_model.ipynb
 ## An overview of the question to be solved
 Diabetes is a chronic medical condition that affects millions of people worldwide. Early detection and proper management of diabetes can help prevent severe complications such as heart disease, kidney failure, and nerve damage. The goal of this project is to develop a machine learning model that can predict whether a person is likely to develop diabetes based on their medical and demographic data.
 How can this model assist doctors and healthcare professionals, common people in early diabetes detection? and how can this model be integrated into a web or mobile application for public use?
