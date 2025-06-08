@@ -40,4 +40,35 @@ The data should include some or most of the below features:
   - Feature Engineering
 ### Dimentionsnality reduction - SVD, PCA from sklearn
 ### Model building - various regression/classification techniques.
+   - Modeling Algorithms:
+      Logistic Regression
+      Random Forest
+      Support Vector Machine (SVM)
+      K-Nearest Neighbors (KNN)
+      Decision Tree
+      Naive Bayes
+   - Evaluation Metrics: Accuracy, F1 Score, ROC-AUC, Confusion Matrix
+   - Model Selection: GridSearchCV with StratifiedKFold
+### Data Source 
+   - https://www.kaggle.com/datasets/asinow/diabetes-dataset
+### Expected Outcomes
+   - A robust and accurate classification model. Expected top performers: Random Forest or SVM
+   - Identification of key predictors such as glucose, BMI, age, and family history
+   - Model metrics: F1 Score > 0.85, ROC-AUC > 0.90
+   - Deployment-ready tool that can be integrated into user-friendly applications for real-time diabetes risk estimation
+### Why This Research Matters
+   - Diabetes is a global health crisis affecting millions of people. Often without symptoms until serious complications like heart disease, kidney failure, or blindness occur. Many cases go undiagnosed until 
+     it's too late for preventive treatment.
+   - If this issue is not addressed, individuals will continue to suffer avoidable health problems, and healthcare systems will be burdened with high treatment costs for advanced disease.
+   - Early prediction allows people to take action before complications develop. By using machine learning to flag high-risk individuals based on simple health indicators, we can support:
+          - Doctors with faster, data-driven decision-making
+          - Common people with awareness of their personal risk and when to seek help
+          - Healthcare systems with automated screening to prioritize early intervention
+   - Ultimately, this analysis brings significant public health value. It empowers prevention, reduces healthcare costs, and improves long-term outcomes for individuals and society.
+### Application Possibilities
+   - A web-based tool where users input health data to receive real-time predictions
+   - A mobile app that integrates the model through a backend API, accessible to the public, especially in under-resourced communities
+
+
+
 
