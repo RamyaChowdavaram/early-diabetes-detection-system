@@ -41,12 +41,12 @@ The data should include some or most of the below features:
 ### Dimentionsnality reduction - SVD, PCA from sklearn
 ### Model building - various regression/classification techniques.
    - Modeling Algorithms:
-      Logistic Regression
-      Random Forest
-      Support Vector Machine (SVM)
-      K-Nearest Neighbors (KNN)
-      Decision Tree
-      Naive Bayes
+       - Logistic Regression
+       - Random Forest
+       - Support Vector Machine (SVM)
+       - K-Nearest Neighbors (KNN)
+       - Decision Tree
+       - Naive Bayes
    - Evaluation Metrics: Accuracy, F1 Score, ROC-AUC, Confusion Matrix
    - Model Selection: GridSearchCV with StratifiedKFold
 ### Data Source 
