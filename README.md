@@ -86,7 +86,6 @@ For now, based on the baseline model KNN results, below is the summary. The KNN 
 
                                                    
 #### Outline of project
-
-- https://github.com/RamyaChowdavaram/early-diabetes-detection-system/blob/main/diabetes_model.ipynb
+- https://github.com/RamyaChowdavaram/early-diabetes-detection-system/blob/main/diabetes_prediction_model.ipynb
 
 ##### Ramya Chowdavaram
