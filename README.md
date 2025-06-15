@@ -86,83 +86,83 @@ The data should include various health parameters, lifestyle habits, and genetic
 ### Data Preprocessing / Preparation
 
 #### Dataset Overview
-- **Technique Used**: `df.shape`, `df.info()`
+- **Technique Used**:  df.shape ,  df.info() 
 - **Result**:
   - Records: 9,538 rows
   - Features: 17 variables (continuous and categorical)
   - Memory Usage: ~1.2 MB
-  - Target Variable: `Outcome` (Binary: 0 = No Diabetes, 1 = Diabetes)
+  - Target Variable:  Outcome  (Binary: 0 = No Diabetes, 1 = Diabetes)
   - Conclusion: Dataset size is suitable for machine learning with good generalization potential.
 
 #### Missing Value Detection
-- **Technique Used**: `df.isnull().sum()`
+- **Technique Used**:  df.isnull().sum() 
 - **Result**: No missing values were detected in any of the features.
-  - Continuous variables (e.g., `bmi`, `glucose`, `hdl`) are fully populated.
-  - Categorical variables (e.g., `familyhistory`, `diettype`) are complete.
+  - Continuous variables (e.g.,  bmi ,  glucose ,  hdl ) are fully populated.
+  - Categorical variables (e.g.,  familyhistory ,  diettype ) are complete.
   - Conclusion: No imputation was required, which simplifies preprocessing and ensures reliable model input.
 
 #### Duplicate Row Detection
-- **Technique Used**: `df.duplicated().sum()`
+- **Technique Used**:  df.duplicated().sum() 
 - **Result**: No duplicate rows found in the dataset.
   - Conclusion: Ensures data integrity and avoids data leakage during training.
 
 #### Data Type Verification
-- **Technique Used**: `df.dtypes`
+- **Technique Used**:  df.dtypes 
 - **Result**:
-  - `float64` for continuous variables like `bmi`, `glucose`, `ldl`, etc.
-  - `int64` for categorical or discrete variables like `age`, `familyhistory`, `outcome`.
+  -  float64  for continuous variables like  bmi ,  glucose ,  ldl , etc.
+  -  int64  for categorical or discrete variables like  age ,  familyhistory ,  outcome .
   - Conclusion: Correct data types ensure compatibility with machine learning algorithms and statistical functions.
 
 #### Column Name Standardization
-- **Technique Used**: `df.columns = df.columns.str.lower()`
+- **Technique Used**:  df.columns = df.columns.str.lower() 
 - **Result**: All column names were converted to lowercase.
   - Prevents case-sensitivity issues in downstream processing or code.
 
 #### Categorical Label Cleaning
-- **Technique Used**: `.replace()` or `.apply()` on text-based columns
-- **Result**: Inconsistent categorical values such as `'N/A'` and `'Not Applicable'` were standardized to `'not applicable'`.
+- **Technique Used**:  .replace()  or  .apply()  on text-based columns
+- **Result**: Inconsistent categorical values such as  'N/A'  and  'Not Applicable'  were standardized to  'not applicable' .
   - Conclusion: This improves consistency and prevents issues during encoding.
 
 #### Feature Distribution and Variability Assessment
-- **Technique Used**: `df.describe()`, `.nunique()`, visualizations (e.g., histograms or boxplots)
+- **Technique Used**:  df.describe() ,  .nunique() , visualizations (e.g., histograms or boxplots)
 - **Results**:
-  - **Continuous Features**: High variability observed (e.g., `bmi` with 2,378 unique values, `glucose`, `ldl`, and `triglycerides`).
-  - **Categorical/Binary Features**: `familyhistory`, `hypertension`, and `outcome` have 2 unique values — ideal for classification tasks.
-  - **Moderate Granularity**: `age` spans 18–89 years (72 unique values), `pregnancies` ranges from 0 to 16.
+  - **Continuous Features**: High variability observed (e.g.,  bmi  with 2,378 unique values,  glucose ,  ldl , and  triglycerides ).
+  - **Categorical/Binary Features**:  familyhistory ,  hypertension , and  outcome  have 2 unique values — ideal for classification tasks.
+  - **Moderate Granularity**:  age  spans 18–89 years (72 unique values),  pregnancies  ranges from 0 to 16.
   - Conclusion: The dataset includes both high-variability continuous features and clean categorical variables, providing a strong basis for model training.
 
 #### Outlier and Anomaly Detection
-- **Technique Used**: `.describe()`, visual methods (e.g., boxplots), logical checks for invalid ranges
-- **Result**: Some negative or implausible values found in `ldl` and `hdl`.
+- **Technique Used**:  .describe() , visual methods (e.g., boxplots), logical checks for invalid ranges
+- **Result**: Some negative or implausible values found in  ldl  and  hdl .
   - These should be reviewed, corrected, or removed during further preprocessing to ensure model robustness.
 
 #### Feature Distribution & Variability
 - **Continuous Features**:
-  - High variability observed in features like `bmi` (2,378 unique values), `glucose`, `ldl`, and `triglycerides`.
+  - High variability observed in features like  bmi  (2,378 unique values),  glucose ,  ldl , and  triglycerides .
   - These variables provide rich granularity for prediction.
 - **Categorical/Binary Features**:
-  - Features such as `familyhistory`, `hypertension`, and `outcome` have 2 unique values each, ideal for classification.
-  - `diettype` has low cardinality and is suitable for encoding.
+  - Features such as familyhistory, hypertension, and outcome have 2 unique values each, ideal for classification.
+  - diettype has low cardinality and is suitable for encoding.
 - **Other Notables**:
-  - `age` shows a good spread (18–89 years; 72 unique values).
-  - `pregnancies` ranges from 0 to 16, reflecting a diverse population.
+  - age shows a good spread (18–89 years; 72 unique values).
+  - pregnancies ranges from 0 to 16, reflecting a diverse population.
 
 #### Outliers and Anomalies
-- While most clinical features fall within expected ranges, some **outliers and negative values** were observed in `ldl` and `hdl`. These should be checked and addressed to improve model robustness.
+- While most clinical features fall within expected ranges, some **outliers and negative values** were observed in  ldl  and  hdl . These should be checked and addressed to improve model robustness.
 
 #### Train-Test Split
 - The dataset was split using an **80/20 stratified approach** to preserve class balance:
-```python
+   python
 from sklearn.model_selection import train_test_split
 
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, stratify=y, random_state=42
 )
-```
+   
 #### Encoding
 - No categorical encoding was needed in the final selected features:
-  - All selected variables were already numeric (`int64` or `float64`)
-  - Binary variables (e.g., `familyhistory`, `medicationuse`) were already encoded as 0/1
+  - All selected variables were already numeric ( int64  or  float64 )
+  - Binary variables (e.g.,  familyhistory ,  medicationuse ) were already encoded as 0/1
 
 #### Explore & Understand the Data (Exploratory Data Analysis) - Pandas, numpy, matlib, plotly, seaborn
   - Understand the types of variables (numerical, categorical).
